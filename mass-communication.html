@@ -4,26 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>《大众传播理论：范式与流派》完整笔记 | 白昆凡的博客</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --accent: #c0392b;
       --bg: #fdfcfb;
       --card-bg: #ffffff;
-      --text: #34495e;
+      --text: #2c3e50; /* 稍微调深一点，增加对比度 */
       --border: #e0d9c5;
     }
+    
     body {
-      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      /* 标准化字体族：优先显示系统高质量字体 */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.8;
+      letter-spacing: 0.02em; /* 微调字间距，呼吸感更好 */
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
+      -webkit-font-smoothing: antialiased; /* 字体抗锯齿优化 */
     }
+
     /* 顶部导航 */
     .nav-back { margin-bottom: 30px; }
-    .nav-back a { text-decoration: none; color: var(--accent); font-weight: bold; }
+    .nav-back a { text-decoration: none; color: var(--accent); font-weight: bold; font-size: 0.95rem; }
 
     /* 书籍头部 */
     .header {
@@ -41,39 +47,61 @@
       border-radius: 6px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    .book-title { font-size: 1.8rem; font-weight: bold; color: #2c3e50; margin-bottom: 5px; }
+    .book-title { 
+      font-family: 'Noto Serif SC', serif; 
+      font-size: 1.8rem; 
+      font-weight: 700; 
+      color: #1a1a1a; 
+      margin-bottom: 5px; 
+    }
     .book-author { font-size: 1.1rem; color: #555; }
     .note-meta { font-size: 0.9rem; color: #888; margin-top: 10px; }
 
     /* 章节样式 */
     .section { margin-bottom: 3.5rem; }
     .section h2 {
+      font-family: 'Noto Serif SC', serif;
       font-size: 1.5rem;
       color: #fff;
       background: var(--accent);
-      padding: 10px 20px;
-      border-radius: 6px;
+      padding: 10px 22px;
+      border-radius: 4px;
       margin-bottom: 1.5rem;
       display: inline-block;
+      box-shadow: 2px 2px 0px rgba(192, 57, 43, 0.2);
     }
     
-    /* 原有内容容器 - 保持原样输出 */
+    /* 原有内容容器 - 极致还原你的笔记格式 */
     .original-content {
       background-color: var(--card-bg);
-      padding: 25px;
+      padding: 30px;
       border-radius: 8px;
       border: 1px solid var(--border);
-      font-size: 0.95rem;
-      white-space: pre-wrap; /* 保证你的换行和缩进完全保留 */
+      font-size: 1.05rem; /* 字号略微调大，更适合阅读 */
+      white-space: pre-wrap; 
       word-wrap: break-word;
     }
 
+    /* 重点强调框 */
     .highlight-box {
       background: #fff9e6;
-      border-left: 5px solid #f1c40f;
-      padding: 15px;
-      margin: 15px 0;
-      font-style: italic;
+      border-left: 4px solid #f1c40f;
+      padding: 20px;
+      margin: 20px 0;
+      font-style: normal; /* 回归正常字体，方便阅读学术定义 */
+      color: #444;
+    }
+
+    /* 逻辑图谱专用：等宽字体 */
+    pre {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 6px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      border: 1px solid #eee;
     }
 
     footer {
@@ -84,10 +112,15 @@
       color: #999;
       font-size: 0.85rem;
     }
+
+    /* 针对加粗文字的优化 */
+    strong {
+      color: #1a1a1a;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
-
   <div class="nav-back">
     <a href="index.html">← 返回首页</a>
   </div>
@@ -105,7 +138,7 @@
     <h2>作者前言</h2>
     <div class="original-content">
 传播研究究竟有没有理论
-底气不足”恰恰应该成为我辈学人进一步深入研究与创造的动力
+“底气不足”恰恰应该成为我辈学人进一步深入研究与创造的动力
 他们对讲课内容的肯定和质疑，以及对抄课堂笔记的抱怨，是这本教材写作的源动力。
 学习阅读过不少社会科学理论，眼睛里充满质疑和锐气的学生
 他们渴望具有挑战性的话题而不是令人乏味的老调重弹
@@ -114,48 +147,12 @@
 
   <div class="section">
     <h2>“传播学”在中国的建构</h2>
-    <div class="original-content">
-按照吉登斯的说法，社会理论与社会之间存在着一种独特的“双重诠释”(double-hermeneutic)
-    </div>
+    <div class="original-content">按照吉登斯的说法，社会理论与社会之间存在着一种独特的“双重诠释”(double-hermeneutic)</div>
   </div>
 
   <div class="section">
-    <h2>欧洲早期大众传播研究</h2>
-    <div class="original-content">
-区别了集群和公众的概念
-塔尔德
-报纸把分散的意见和分散的人群联系在一起
-模仿的法则
-创新扩散
-模仿总是从上层向下层扩散
-人际传播的中介作用
-西美尔
-现代性
-都市的陌生人、货币哲学、时尚的心理、交往的社会形式、女性文化
-通俗文化和现代性
-使个性本身独立，另一方面又使这种个性湮没于体制化的社会中
-货币
-时尚
-社会平等化与个性差异魅力
-女性研究
-社交性
-互动中排除了现实性
-交往中传播游戏
-芝加哥学派
-帕克
-传播网络分析
-格雷厄姆·沃拉斯
-政治中的非理性特征
-舆论
-呼声
-李普曼
-    </div>
-  </div>
-
-<div class="section">
     <h2>欧洲早期大众传播研究：范式雏形的梳理</h2>
     <div class="original-content">
-      
       <div class="highlight-box">
         <strong>一、 核心问题意识</strong><br>
         在现代性（modernity）条件下，个体如何超越原子化状态，形成具有公共性的“公众”（public）而非非理性的“集群”（crowd）？<br>
@@ -163,95 +160,49 @@
       </div>
 
       <strong>二、 三大理论路径及其逻辑关联</strong><br><br>
-      
-      <strong>（1） 塔尔德（Gabriel Tarde）：模仿—扩散—公众形成的微观机制</strong><br>
-      • 区分“集群”与“公众”：<br>
-      &nbsp;&nbsp;集群（crowd）：物理聚集、情绪传染、非理性；<br>
-      &nbsp;&nbsp;公众（public）：分散个体通过阅读同一报纸而形成心理联结，具备反思能力。<br>
-      • 报纸的作用：将地理上分散的人群和意见联结为想象的共同体（早于安德森）。<br>
-      • 模仿法则：社会行为通过模仿传播，且自上而下（精英→大众）。<br>
-      • 人际传播的中介作用：大众传播的信息需经人际网络二次传播才产生效果 → 隐含“两级传播”雏形。<br>
-      ✅ 逻辑主线：媒介（报纸） + 模仿机制 + 人际中介 = 理性公众的诞生<br><br>
+      <strong>（1） 塔尔德（Gabriel Tarde）：模仿—公众形成的微观机制</strong><br>
+      • 区分“集群”与“公众”：集群（crowd）是情绪传染的；公众（public）是分散个体通过报纸形成的心理联结。<br>
+      • 报纸的作用：将分散的人群联结为想象的共同体。<br>
+      • 模仿法则：社会行为自上而下模仿。<br>
+      ✅ 逻辑主线：媒介 + 模仿机制 + 人际中介 = 理性公众的诞生<br><br>
 
-      <strong>（2） 西美尔（Georg Simmel）：现代性中的交往形式与文化张力</strong><br>
-      • 聚焦都市生活中的新型社会关系：<br>
-      &nbsp;&nbsp;陌生人：既亲近又疏离的社会角色；<br>
-      &nbsp;&nbsp;货币哲学：货币使交换去人格化，促进平等但也导致情感冷漠；<br>
-      &nbsp;&nbsp;时尚：既追求个性差异，又服从群体规范 → 平等化与差异化并存；<br>
-      &nbsp;&nbsp;女性文化：女性作为现代性矛盾载体（自由 vs 规训）；<br>
-      &nbsp;&nbsp;社交性（sociability）：交往本身成为目的，排除现实利益，如“传播游戏”。<br>
-      • 通俗文化与现代性悖论：<br>
-      &nbsp;&nbsp;“使个性独立，又使个性湮没于体制化社会”<br>
-      &nbsp;&nbsp;→ 个体看似自由选择，实则被系统逻辑收编。<br>
-      ✅ 逻辑主线：现代传播/文化形式（货币、时尚、社交）既是解放力量，也是新的控制机制<br><br>
+      <strong>（2） 西美尔（Georg Simmel）：现代性中的交往形式</strong><br>
+      • 聚焦都市生活：陌生人、货币哲学、时尚心理、社交性。<br>
+      • 现代性悖论：“使个性独立，又使个性湮没于体制化社会”。<br>
+      ✅ 逻辑主线：现代传播形式既是解放力量，也是新的控制机制<br><br>
 
-      <strong>（3） 英国传统（沃拉斯、李普曼）：对民主舆论的悲观审视</strong><br>
-      • 格雷厄姆·沃拉斯（Graham Wallas）：揭示政治中的非理性，强调“呼声”（appeal to emotion）胜过理性辩论。<br>
-      • 李普曼（Walter Lippmann）：大众无法直接认知复杂世界，依赖媒体建构的“拟态环境”（pseudo-environment）；“刻板印象”主导认知；所谓“民意”实为象征符号操控的结果，缺乏真实社群基础。<br>
-      ✅ 逻辑主线：大众传播非但未促成理性公众，反而加剧了民主的幻觉与操纵<br><br>
+      <strong>（3） 英国传统：对民主舆论的悲观审视</strong><br>
+      • 沃拉斯：强调“呼声”胜过理性辩论。<br>
+      • 李普曼：媒体建构“拟态环境”，民意实为象征符号操控的结果。<br><br>
 
       <strong>三、 整体逻辑图谱</strong><br>
-      <pre style="background:#f4f4f4; padding:15px; border-radius:5px; font-family:monospace; line-height:1.4;">
+      <pre>
 现代性危机
 │
-├─ 塔尔德：乐观路径 → 报纸 + 模仿 → 形成理性公众（传播作为整合力量）
+├─ 塔尔德：乐观路径 → 报纸 + 模仿 → 形成理性公众
 │
-├─ 西美尔：辩证路径 → 传播/文化形式同时解放与规训个体（现代性内在张力）
+├─ 西美尔：辩证路径 → 传播/文化形式同时解放与规训个体
 │
-└─ 沃拉斯/李普曼：悲观路径 → 传播强化非理性、制造虚假共识（传播作为操控工具）
+└─ 沃拉斯/李普曼：悲观路径 → 传播强化非理性、制造虚假共识
       </pre>
 
       <strong>四、 为何纳入“芝加哥学派/帕克”？</strong><br>
-      虽然帕克属美国学派，但此处提及意在承上启下：<br>
-      • 帕克曾师从西美尔，将欧洲理论（尤其是“公众”“传播网络”）引入美国；<br>
-      • 他强调传播在社群形成中的作用，延续塔尔德对“公众”构想；<br>
-      • 但更注重经验调查，为后续实证传播研究奠基。<br>
-      因此，这段书摘实为欧洲思想如何奠定大众传播理论三大范式雏形（整合、批判、实证）的源头梳理。
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>芝加哥学派与早期美国研究</h2>
-    <div class="original-content">
-涂尔干、受众调查、大众媒介发展、社会问题、广告业、公共关系、政策必须依赖民意、实用主义、经验方法、反形而上学...
-(此处保留你原文中关于米德、杜威、帕克的所有关键词内容，建议粘贴时直接放入此区块)
+      帕克曾师从西美尔，将欧洲理论引入美国，强调传播在社群形成中的作用，为后续实证传播研究奠基。
     </div>
   </div>
 
   <div class="section">
     <h2>李普曼和《民意》：拟态环境与刻板印象</h2>
-    <div class="original-content">
-他并不指挥千军万马，然而他确实有左右舆论的巨大力量。
-大众媒体这样的间接方式选择性地对外部世界做出报道，营造“拟态环境”。
-民意沦为象征符号制造的同意。
-客观性成为一种仪式。
-当我们越深刻察觉自己的主观，我们便产生了追求客观方法的狂热。
-    </div>
+    <div class="original-content">他并不指挥千军万马，然而他确实有左右舆论的巨大力量。大众媒体选择性地对外部世界做出报道，营造“拟态环境”。民意沦为象征符号制造的同意。客观性成为一种仪式。当我们越深刻察觉自己的主观，我们便产生了追求客观方法的狂热。</div>
   </div>
 
   <div class="section">
     <h2>大众传播理论的三种范式</h2>
-    <div class="original-content">
-1. 客观经验主义范式：自然与社会统一、规律可观察测量、数学描述、价值中立。
-2. 诠释经验主义范式：人约定俗成建构规则、主观诠释、意义共享。
-3. 批判理论（法兰克福学派）：理性的盲目崇拜、否定虚假意识、提倡价值介入。
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>媒介即讯息：麦克卢汉与媒介环境</h2>
-    <div class="original-content">
-印刷媒介形成“想象的共同体”。
-伊尼斯：偏时间媒介 vs 偏空间媒介。
-麦克卢汉：热媒介（广播）vs 冷媒介（电视）。
-旅行是在寻找已经在媒介里获得的想象，用实物验证符号。
-消费不仅仅是商品，更是它所象征的品牌故事。
-    </div>
+    <div class="original-content">1. 客观经验主义范式：规律可观察测量、价值中立。<br>2. 诠释经验主义范式：人建构规则、主观诠释。<br>3. 批判理论（法兰克福学派）：否定虚假意识、提倡价值介入。</div>
   </div>
 
   <footer>
     © 2026 白昆凡的博客 | 记录新闻实践与理论思考
   </footer>
-
 </body>
 </html>
