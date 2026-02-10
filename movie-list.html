@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2025 电影年度榜单 | 白昆凡的博客</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --netflix-red: #e50914;
+      --bg: #141414; /* 网飞黑 */
+      --card-bg: #1f1f1f;
+      --text: #ffffff;
+      --sub-text: #b3b3b3;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; }
+    
+    header { padding: 40px 5%; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent); }
+    .nav-back { text-decoration: none; color: var(--netflix-red); font-weight: bold; margin-bottom: 20px; display: block; }
+    h1 { font-family: 'Noto Serif SC', serif; font-size: 2.5rem; margin: 10px 0; }
+    
+    .filter-tags { margin-bottom: 40px; display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; }
+    .tag { background: #333; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; cursor: pointer; border: 1px solid transparent; transition: 0.3s; }
+    .tag:hover, .tag.active { border-color: var(--netflix-red); color: var(--netflix-red); }
+
+    /* 电影列表网格 */
+    .movie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; padding: 0 5% 50px; }
+    .movie-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; transition: transform 0.3s; position: relative; }
+    .movie-card:hover { transform: scale(1.03); }
+    .poster-wrap { position: relative; width: 100%; aspect-ratio: 2/3; }
+    .poster-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .rating-badge { position: absolute; top: 10px; left: 10px; background: rgba(229, 9, 20, 0.9); padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
+    
+    .movie-info { padding: 20px; }
+    .movie-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; }
+    .movie-meta { font-size: 0.8rem; color: var(--sub-text); margin-bottom: 12px; }
+    .recommendation { font-size: 0.9rem; line-height: 1.5; color: #eee; border-top: 1px solid #333; padding-top: 12px; }
+    
+    footer { text-align: center; padding: 50px; color: var(--sub-text); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="nav-back">← 返回主站</a>
+  <h1>2025 年度私人电影榜单</h1>
+  <p style="color:var(--sub-text)">记录过去一年里，那些触动灵魂的银幕瞬间。</p>
+</header>
+
+<div class="movie-grid">
+  <div class="movie-card">
+    <div class="poster-wrap">
+      <div class="rating-badge">9.2</div>
+      <img src="https://picsum.photos/id/10/400/600" alt="电影名称">
+    </div>
+    <div class="movie-info">
+      <div class="movie-title">奥本海默 (Oppenheimer)</div>
+      <div class="movie-meta">剧情 / 传记 / 历史 · 2023</div>
+      <div class="recommendation">
+        <strong>推荐语：</strong>不仅是关于原子弹之父的传记，更是对道德困境、权力博弈与人类文明毁灭性力量的深刻反思。
+      </div>
+    </div>
+  </div>
+
+  <div class="movie-card">
+    <div class="poster-wrap">
+      <div class="rating-badge">8.8</div>
+      <img src="https://picsum.photos/id/11/400/600" alt="电影名称">
+    </div>
+    <div class="movie-info">
+      <div class="movie-title">坠落的审判 (Anatomy of a Fall)</div>
+      <div class="movie-meta">剧情 / 惊悚 / 犯罪 · 2023</div>
+      <div class="recommendation">
+        <strong>推荐语：</strong>在婚姻的审判席上，真相不再是唯一，语言的偏见与生活的琐碎共同构成了这场冷峻的解剖。
+      </div>
+    </div>
+  </div>
+
+  <div class="movie-card">
+    <div class="poster-wrap">
+      <div class="rating-badge">9.0</div>
+      <img src="https://picsum.photos/id/12/400/600" alt="电影名称">
+    </div>
+    <div class="movie-info">
+      <div class="movie-title">你想活出怎样的人生</div>
+      <div class="movie-meta">动画 / 奇幻 · 2023</div>
+      <div class="recommendation">
+        <strong>推荐语：</strong>宫崎骏用他的人生积淀告诉我们：世界虽满目疮痍，但你依然可以构建一个纯净的塔。
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2026 白昆凡的博客 | Kristina's Cinema Notes
+</footer>
+
+</body>
+</html>
