@@ -6,152 +6,63 @@
   <title>Americas Focus | Kristina's Global Monitor</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Playfair+Display:ital,wght@0,700;1,700&family=Libre+Franklin:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --nyt-black: #121212;
-      --nyt-red: #c0392b;
-      --border: #dfdfdf;
-    }
+    :root { --nyt-black: #121212; --nyt-red: #c0392b; --border: #dfdfdf; }
     body { font-family: "Georgia", serif; background: #fff; color: var(--nyt-black); margin: 0; line-height: 1.6; }
-    
-    /* 1. 顶部高亮与滚动头条 */
-    .top-bar {
-      background: var(--nyt-black);
-      color: #fff;
-      padding: 10px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 0.8rem;
-    }
+    .top-bar { background: var(--nyt-black); color: #fff; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; font-family: 'Libre Franklin', sans-serif; font-size: 0.8rem; }
     .date-highlight { background: var(--nyt-red); padding: 2px 8px; font-weight: 700; border-radius: 2px; }
     .ticker-wrap { flex: 1; margin: 0 20px; overflow: hidden; white-space: nowrap; position: relative; }
-    .ticker { display: inline-block; animation: ticker 25s linear infinite; font-weight: 400; }
+    .ticker { display: inline-block; animation: ticker 25s linear infinite; }
     @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-
-    /* 2. 报头设计 */
     header { text-align: center; padding: 30px 0; border-bottom: 1px solid var(--nyt-black); margin: 0 5%; }
     .header-logo { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; font-style: italic; letter-spacing: -1px; }
-    .header-sub { font-family: 'Libre Franklin', sans-serif; font-size: 0.75rem; letter-spacing: 2px; margin-top: 5px; }
-
-    /* 3. 布局结构 */
-    .container {
-      display: grid;
-      grid-template-columns: 2.5fr 4.5fr 3fr;
-      gap: 35px;
-      padding: 40px 5%;
-      max-width: 1400px;
-      margin: auto;
-    }
-
-    /* 4. 左侧：当日热点榜 */
+    .container { display: grid; grid-template-columns: 2.5fr 4.5fr 3fr; gap: 35px; padding: 40px 5%; max-width: 1400px; margin: auto; }
     .trending-box { border-right: 1px solid var(--border); padding-right: 25px; }
-    .trending-title { font-family: 'Libre Franklin', sans-serif; font-size: 0.8rem; text-transform: uppercase; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 20px; }
-    .trending-item { margin-bottom: 20px; border-bottom: 1px dashed #eee; padding-bottom: 12px; }
-    .trending-num { color: var(--nyt-red); font-family: 'Libre Franklin', sans-serif; font-weight: 700; font-size: 1.2rem; margin-right: 12px; }
-    .trending-item a { text-decoration: none; color: inherit; font-size: 0.95rem; font-weight: 700; transition: 0.2s; }
-    .trending-item a:hover { color: var(--nyt-red); }
-
-    /* 5. 中间：美洲新闻自动化挂载点 */
     .media-section { margin-bottom: 45px; border-bottom: 1px solid #f0f0f0; padding-bottom: 25px; }
-    .media-label { 
-      font-family: 'Libre Franklin', sans-serif; 
-      font-size: 0.7rem; 
-      background: var(--nyt-black); 
-      color: #fff;
-      padding: 2px 10px; 
-      margin-bottom: 18px; 
-      display: inline-block;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
+    .media-label { font-family: 'Libre Franklin', sans-serif; font-size: 0.7rem; background: var(--nyt-black); color: #fff; padding: 2px 10px; margin-bottom: 18px; display: inline-block; text-transform: uppercase; font-weight: 700; }
     .news-card { margin-bottom: 20px; }
     .news-card h3 { font-family: 'Noto Serif SC', serif; font-size: 1.4rem; margin: 8px 0; line-height: 1.2; }
     .news-card a { text-decoration: none; color: inherit; transition: 0.3s; }
     .news-card a:hover { color: var(--nyt-red); }
-
-    /* 6. 右侧：多元视角与观察 */
     .sidebar-section { margin-bottom: 35px; background: #f9f9f9; padding: 15px; border-radius: 4px; border: 1px solid #eee; }
-    .sidebar-section h4 { font-family: 'Libre Franklin', sans-serif; font-size: 0.75rem; text-transform: uppercase; margin-top: 0; color: var(--nyt-red); }
-
     .nav-back { position: absolute; top: 15px; left: 5%; text-decoration: none; color: var(--nyt-black); font-size: 0.8rem; font-weight: 700; border: 1px solid #000; padding: 4px 10px; }
-
-    footer { text-align: center; border-top: 1px solid var(--nyt-black); padding: 40px 0; margin: 40px 5% 0; font-size: 0.75rem; color: #999; font-family: 'Libre Franklin', sans-serif; }
-
-    @media (max-width: 1100px) {
-      .container { grid-template-columns: 1fr; }
-      .trending-box { border-right: none; }
-    }
+    footer { text-align: center; border-top: 1px solid var(--nyt-black); padding: 40px 0; margin: 40px 5% 0; font-size: 0.75rem; color: #999; }
+    @media (max-width: 1100px) { .container { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-
 <a href="index.html" class="nav-back">← HOME</a>
-
 <div class="top-bar">
   <div class="date-highlight">2026.02.10</div>
-  <div class="ticker-wrap">
-    <div class="ticker">
-      LATEST AMERICAS: 特朗普政府公布最新美洲贸易愿景 &nbsp;&nbsp; | &nbsp;&nbsp; 巴西亚马逊雨林保护计划获得国际资金支持 &nbsp;&nbsp; | &nbsp;&nbsp; 阿根廷通胀走势引发拉美经济专家热议
-    </div>
-  </div>
+  <div class="ticker-wrap"><div class="ticker">LATEST AMERICAS: 特朗普政府公布最新美洲贸易愿景 &nbsp;&nbsp; | &nbsp;&nbsp; 巴西亚马逊雨林保护计划获得国际资金支持</div></div>
   <div style="font-weight:700;">AMERICAS FOCUS MONITOR</div>
 </div>
-
 <header>
   <div class="header-logo">Americas Focus</div>
-  <div class="header-sub">DIPLOMACY · INTERNATIONAL JOURNALISM · AUTOMATED MONITORING</div>
+  <div style="font-family:'Libre Franklin'; font-size:0.75rem; letter-spacing:2px; margin-top:5px;">DIPLOMACY · INTERNATIONAL JOURNALISM · AUTOMATED MONITORING</div>
 </header>
-
 <div class="container">
-  
   <aside class="trending-box">
-    <h4 class="trending-title">Trending Analysis</h4>
-    <div class="trending-item">
-      <span class="trending-num">01</span>
-      <a href="#">地缘博弈：美利坚外交政策对拉美市场的长线影响</a>
-    </div>
-    <div class="trending-item">
-      <span class="trending-num">02</span>
-      <a href="#">数字主权：智利与哥伦比亚的科技监管新规动态</a>
-    </div>
-    <div class="trending-item">
-      <span class="trending-num">03</span>
-      <a href="#">贸易观察：从墨西哥城到圣保罗的供应链重组实验</a>
-    </div>
+    <h4 style="font-family:'Libre Franklin'; font-size:0.8rem; text-transform:uppercase; border-bottom:2px solid #000; padding-bottom:5px; margin-bottom:20px;">Trending Analysis</h4>
+    <div class="trending-item" style="margin-bottom:20px;"><span style="color:var(--nyt-red); font-weight:700; font-size:1.2rem; margin-right:12px;">01</span><a href="#" style="text-decoration:none; color:inherit; font-weight:700;">地缘博弈：美利坚外交政策对拉美市场的长线影响</a></div>
+    <div class="trending-item" style="margin-bottom:20px;"><span style="color:var(--nyt-red); font-weight:700; font-size:1.2rem; margin-right:12px;">02</span><a href="#" style="text-decoration:none; color:inherit; font-weight:700;">数字主权：智利与哥伦比亚的科技监管新规动态</a></div>
   </aside>
-
   <main>
     <div style="padding: 40px; text-align: center; color: #888; border: 1px dashed #ccc;">
-        <p>📡 <strong>Kristina's Newsbot 正在连接全球美洲信源...</strong></p>
-        <p style="font-size: 0.85rem;">请确保已在 GitHub Actions 中开启权限并运行 <code>update_news.py</code>。</p>
+        <p>📡 <strong>Kristina's Newsbot 正在初始化...</strong></p>
+        <p style="font-size: 0.85rem;">请确保已开启 GitHub Actions 权限并手动触发运行。</p>
     </div>
     </main>
-
   <aside>
     <div class="sidebar-section">
-      <h4>AUSTRALIA视角 / ABC</h4>
-      <p style="font-size:0.9rem; font-weight:700; margin:5px 0;"><a href="https://www.abc.net.au/news/" style="text-decoration:none; color:inherit;">墨尔本大学学者解析美洲政局对亚太安全的影响</a></p>
+      <h4 style="font-family:'Libre Franklin'; font-size:0.75rem; text-transform:uppercase; margin-top:0; color:var(--nyt-red);">AUSTRALIA视角 / ABC</h4>
+      <p style="font-size:0.9rem; font-weight:700;"><a href="https://www.abc.net.au/news/" style="text-decoration:none; color:inherit;">墨尔本大学学者解析美洲政局对亚太安全的影响</a></p>
     </div>
-
-    <div class="sidebar-section">
-      <h4>CHINA视角 / XINHUA</h4>
-      <p style="font-size:0.9rem; font-weight:700; margin:5px 0;"><a href="http://english.news.cn/" style="text-decoration:none; color:inherit;">中拉经贸合作在数字经济领域取得新进展</a></p>
-    </div>
-
     <div style="background:#fff9e6; padding:20px; border-left:4px solid #f1c40f; margin-top:20px;">
       <h5 style="margin:0 0 10px 0; font-family:'Libre Franklin'; font-size:0.8rem;">ABOUT THIS MONITOR</h5>
-      <p style="font-size:0.8rem; line-height:1.5; color:#555;">
-        本板块由<strong>北京外国语大学外交学</strong>校友、现<strong>墨尔本大学新闻系</strong>学生 Kristina 开发。旨在利用自动化脚本 实时监测美洲地区 在地缘、贸易与科技领域的动态。
-      </p>
+      <p style="font-size:0.8rem; line-height:1.5; color:#555;">由<strong>北外外交学</strong>校友、现<strong>墨大新闻系</strong>学生 Kristina 开发。利用自动化脚本实时监测美洲地区在地缘与贸易领域的动态。</p>
     </div>
   </aside>
-
 </div>
-
-<footer>
-  © 2026 KRISTINA BAI | THE UNIVERSITY OF MELBOURNE | BFSU DIPLOMACY ALUMNA
-</footer>
-
+<footer style="margin-top:40px;">© 2026 KRISTINA BAI | THE UNIVERSITY OF MELBOURNE | BFSU DIPLOMACY ALUMNA</footer>
 </body>
 </html>
