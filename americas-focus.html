@@ -1,211 +1,84 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Americas Focus | Kristina's Newsroom</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Playfair+Display:ital,wght@0,700;1,700&family=Libre+Franklin:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --nyt-black: #121212;
-      --nyt-grey: #666;
-      --nyt-border: #dfdfdf;
-      --bg-paper: #ffffff;
-    }
+<div class="rss-feed-wrapper" style="background:none;">
+      <div class="news-item">
+        <span class="news-category">THE NEW YORK TIMES</span>
+        <a href="https://www.nytimes.com/section/world/americas" target="_blank">
+          特朗普重返白宫：美洲贸易协定面临重新谈判压力
+        </a>
+        <span class="news-time">2 HOURS AGO</span>
+      </div>
 
-    body {
-      font-family: "Georgia", "Times New Roman", serif;
-      background-color: var(--bg-paper);
-      color: var(--nyt-black);
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
+      <div class="news-item">
+        <span class="news-category">REUTERS</span>
+        <a href="https://www.reuters.com/world/americas/" target="_blank">
+          巴西政府发布新绿色能源计划，旨在吸引 200 亿美元外资
+        </a>
+        <span class="news-time">5 HOURS AGO</span>
+      </div>
 
-    /* 模仿《纽约时报》页头 */
-    header {
-      text-align: center;
-      padding: 30px 5% 10px;
-      margin: 0 5%;
-      border-bottom: 1px solid var(--nyt-black);
-    }
+      <div class="news-item">
+        <span class="news-category">BBC WORLD</span>
+        <a href="https://www.bbc.com/news/world/latin_america" target="_blank">
+          阿根廷通胀率出现放缓迹象，市场信心回升
+        </a>
+        <span class="news-time">10 HOURS AGO</span>
+      </div>
 
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding-bottom: 10px;
-    }
+      <div class="news-item">
+        <span class="news-category">THE WALL STREET JOURNAL</span>
+        <a href="https://www.wsj.com/news/world/latin-america" target="_blank">
+          墨西哥科技初创企业迎来融资热潮，金融科技依然领跑
+        </a>
+        <span class="news-time">1 DAY AGO</span>
+      </div>
 
-    .header-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      margin: 10px 0;
-      font-weight: 700;
-      font-style: italic;
-      letter-spacing: -1px;
-    }
-
-    .header-nav-strip {
-      border-top: 1px solid var(--nyt-border);
-      border-bottom: 4px double var(--nyt-black);
-      padding: 5px 0;
-      margin-top: 5px;
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    /* 响应式布局容器 */
-    .container {
-      display: grid;
-      grid-template-columns: 3fr 1fr;
-      gap: 40px;
-      padding: 40px 5%;
-      max-width: 1300px;
-      margin: auto;
-    }
-
-    /* 主栏：深度观察与分析 */
-    .main-column {
-      border-right: 1px solid var(--nyt-border);
-      padding-right: 30px;
-    }
-
-    .featured-article {
-      margin-bottom: 40px;
-      border-bottom: 1px solid var(--nyt-border);
-      padding-bottom: 40px;
-    }
-
-    .featured-article h2 {
-      font-family: 'Noto Serif SC', serif;
-      font-size: 2.2rem;
-      line-height: 1.1;
-      margin: 15px 0;
-    }
-
-    .featured-article img {
-      width: 100%;
-      height: auto;
-      filter: grayscale(10%); /* 微弱灰度增加纪实感 */
-    }
-
-    .article-summary {
-      font-size: 1.1rem;
-      color: #333;
-      margin-top: 15px;
-    }
-
-    .author-byline {
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      display: block;
-    }
-
-    /* 侧边栏：RSS 实时抓取区 */
-    .sidebar h3 {
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--nyt-black);
-      padding-bottom: 5px;
-      margin-bottom: 20px;
-    }
-
-    .rss-feed-wrapper {
-      min-height: 600px;
-      background: #f9f9f9;
-      border-radius: 4px;
-      padding: 5px;
-    }
-
-    /* 回到首页按钮 */
-    .nav-back {
-      position: absolute;
-      top: 20px;
-      left: 5%;
-      text-decoration: none;
-      color: var(--nyt-black);
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      border: 1px solid var(--nyt-black);
-      padding: 5px 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 50px 5%;
-      margin: 40px 5% 0;
-      border-top: 1px solid var(--nyt-border);
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 0.7rem;
-      color: var(--nyt-grey);
-    }
-
-    @media (max-width: 900px) {
-      .container { grid-template-columns: 1fr; }
-      .main-column { border-right: none; padding-right: 0; }
-    }
-  </style>
-</head>
-<body>
-
-<a href="index.html" class="nav-back">← HOME</a>
-
-<header>
-  <div class="header-top">
-    <span>Tuesday, February 10, 2026</span>
-    <span>Kristina's Global Observation</span>
-    <span>Melbourne, Australia</span>
-  </div>
-  <div class="header-logo">Americas Focus</div>
-  <div class="header-nav-strip">
-    Diplomacy · International Journalism · Media Technology
-  </div>
-</header>
-
-<div class="container">
-  <main class="main-column">
-    <article class="featured-article">
-      <span class="author-byline">By KRISTINA BAI</span>
-      <h2>跨越半球的观察：美洲政策变动对大洋洲贸易的溢出效应</h2>
-      <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1200&q=80" alt="Diplomacy Image">
-      <p class="article-summary">
-        作为一名曾在<strong>北京外国语大学学习外交学</strong>，现于<strong>墨尔本大学深造新闻学</strong>的跨学科观察者，我持续关注着美洲地区的动态。本栏目旨在结合地缘政治视角与专业新闻叙事，梳理复杂信息流背后的逻辑。
-      </p>
-    </article>
-
-    <article class="featured-article">
-      <span class="author-byline">ANALYSIS</span>
-      <h2>数字货币与拉美市场的“去中心化”实验</h2>
-      <p class="article-summary">从萨尔瓦多到阿根廷，美洲大陆正在经历一场史无前例的金融技术革命。这不仅是经济问题，更是对传统主权货币体系的挑战。</p>
-    </article>
-  </main>
-
-  <aside class="sidebar">
-    <h3>Latest from NYT Americas</h3>
-    <div class="rss-feed-wrapper">
-      <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" preloader-text="Fetching International News..." data-fw-widget-id="158760"></script>
+      <a href="https://www.nytimes.com/section/world/americas" target="_blank" class="view-all-btn">
+        VIEW FULL SECTION ON NYT →
+      </a>
     </div>
-    
-    <div style="margin-top: 20px; font-size: 0.8rem; border-top: 1px solid #eee; padding-top: 15px;">
-      <p><strong>技术说明：</strong>本侧边栏通过 RSS 聚合技术实时抓取《纽约时报》美洲版最新资讯，展示了基于 API 和订阅源的自动化新闻处理能力。</p>
-    </div>
-  </aside>
-</div>
 
-<footer>
-  © 2026 KRISTINA BAI | THE UNIVERSITY OF MELBOURNE | BEIJING FOREIGN STUDIES UNIVERSITY ALUMNA
-</footer>
-
-</body>
-</html>
+    <style>
+      .news-item {
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+        transition: 0.3s;
+      }
+      .news-item:hover { opacity: 0.7; }
+      .news-category {
+        display: block;
+        font-family: 'Libre Franklin', sans-serif;
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 5px;
+      }
+      .news-item a {
+        font-family: 'Noto Serif SC', serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--nyt-black);
+        text-decoration: none;
+        line-height: 1.4;
+        display: block;
+      }
+      .news-time {
+        display: block;
+        font-family: 'Libre Franklin', sans-serif;
+        font-size: 0.6rem;
+        color: #999;
+        margin-top: 5px;
+      }
+      .view-all-btn {
+        display: block;
+        margin-top: 20px;
+        font-family: 'Libre Franklin', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+        color: #121212;
+        border: 1px solid #121212;
+        padding: 8px;
+        transition: 0.3s;
+      }
+      .view-all-btn:hover { background: #121212; color: #fff; }
+    </style>
