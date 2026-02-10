@@ -1,84 +1,157 @@
-<div class="rss-feed-wrapper" style="background:none;">
-      <div class="news-item">
-        <span class="news-category">THE NEW YORK TIMES</span>
-        <a href="https://www.nytimes.com/section/world/americas" target="_blank">
-          特朗普重返白宫：美洲贸易协定面临重新谈判压力
-        </a>
-        <span class="news-time">2 HOURS AGO</span>
-      </div>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全球资讯看板 | Kristina's Newsroom</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Playfair+Display:ital,wght@0,700;1,700&family=Libre+Franklin:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --nyt-black: #121212;
+      --nyt-red: #c0392b;
+      --border: #dfdfdf;
+    }
+    body { font-family: "Georgia", serif; background: #fff; color: var(--nyt-black); margin: 0; line-height: 1.6; }
+    
+    /* 1. 顶部高亮与滚动头条 */
+    .top-bar {
+      background: var(--nyt-black);
+      color: #fff;
+      padding: 10px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 0.8rem;
+    }
+    .date-highlight { background: var(--nyt-red); padding: 2px 8px; font-weight: 700; border-radius: 2px; }
+    .ticker-wrap { flex: 1; margin: 0 20px; overflow: hidden; white-space: nowrap; position: relative; }
+    .ticker { display: inline-block; animation: ticker 25s linear infinite; font-weight: 400; }
+    @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-      <div class="news-item">
-        <span class="news-category">REUTERS</span>
-        <a href="https://www.reuters.com/world/americas/" target="_blank">
-          巴西政府发布新绿色能源计划，旨在吸引 200 亿美元外资
-        </a>
-        <span class="news-time">5 HOURS AGO</span>
-      </div>
+    /* 2. 报头设计 */
+    header { text-align: center; padding: 30px 0; border-bottom: 1px solid var(--nyt-black); margin: 0 5%; }
+    .header-logo { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; font-style: italic; letter-spacing: -1px; }
+    .header-sub { font-family: 'Libre Franklin', sans-serif; font-size: 0.75rem; letter-spacing: 2px; margin-top: 5px; }
 
-      <div class="news-item">
-        <span class="news-category">BBC WORLD</span>
-        <a href="https://www.bbc.com/news/world/latin_america" target="_blank">
-          阿根廷通胀率出现放缓迹象，市场信心回升
-        </a>
-        <span class="news-time">10 HOURS AGO</span>
-      </div>
+    /* 3. 布局结构 */
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 4fr 2fr;
+      gap: 35px;
+      padding: 40px 5%;
+      max-width: 1400px;
+      margin: auto;
+    }
 
-      <div class="news-item">
-        <span class="news-category">THE WALL STREET JOURNAL</span>
-        <a href="https://www.wsj.com/news/world/latin-america" target="_blank">
-          墨西哥科技初创企业迎来融资热潮，金融科技依然领跑
-        </a>
-        <span class="news-time">1 DAY AGO</span>
-      </div>
+    /* 4. 左侧：当日热点榜 */
+    .trending-box { border-right: 1px solid var(--border); padding-right: 25px; }
+    .trending-title { font-family: 'Libre Franklin', sans-serif; font-size: 0.8rem; text-transform: uppercase; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 20px; }
+    .trending-item { margin-bottom: 20px; border-bottom: 1px dashed #eee; padding-bottom: 12px; }
+    .trending-num { color: var(--nyt-red); font-family: 'Libre Franklin', sans-serif; font-weight: 700; font-size: 1.2rem; margin-right: 12px; }
+    .trending-item a { text-decoration: none; color: inherit; font-size: 0.95rem; font-weight: 700; transition: 0.2s; }
+    .trending-item a:hover { color: var(--nyt-red); }
 
-      <a href="https://www.nytimes.com/section/world/americas" target="_blank" class="view-all-btn">
-        VIEW FULL SECTION ON NYT →
-      </a>
+    /* 5. 中间：媒体分栏（自动化挂载点） */
+    .media-section { margin-bottom: 45px; border-bottom: 1px solid #f0f0f0; padding-bottom: 25px; }
+    .media-label { 
+      font-family: 'Libre Franklin', sans-serif; 
+      font-size: 0.7rem; 
+      background: var(--nyt-black); 
+      color: #fff;
+      padding: 2px 10px; 
+      margin-bottom: 18px; 
+      display: inline-block;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .news-card { margin-bottom: 20px; }
+    .news-card h3 { font-family: 'Noto Serif SC', serif; font-size: 1.4rem; margin: 8px 0; line-height: 1.2; }
+    .news-card a { text-decoration: none; color: inherit; transition: 0.3s; }
+    .news-card a:hover { color: var(--nyt-red); }
+
+    /* 6. 右侧：区域观察 */
+    .sidebar-section { margin-bottom: 35px; background: #f9f9f9; padding: 15px; border-radius: 4px; border: 1px solid #eee; }
+    .sidebar-section h4 { font-family: 'Libre Franklin', sans-serif; font-size: 0.75rem; text-transform: uppercase; margin-top: 0; color: var(--nyt-red); }
+
+    .nav-back { position: absolute; top: 15px; left: 5%; text-decoration: none; color: var(--nyt-black); font-size: 0.8rem; font-weight: 700; border: 1px solid #000; padding: 4px 10px; }
+
+    footer { text-align: center; border-top: 1px solid var(--nyt-black); padding: 40px 0; margin: 40px 5% 0; font-size: 0.75rem; color: #999; font-family: 'Libre Franklin', sans-serif; }
+
+    @media (max-width: 1024px) {
+      .container { grid-template-columns: 1fr; }
+      .trending-box { border-right: none; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="index.html" class="nav-back">← HOME</a>
+
+<div class="top-bar">
+  <div class="date-highlight">2026.02.10</div>
+  <div class="ticker-wrap">
+    <div class="ticker">
+      LATEST: 谷爱凌在米兰冬奥会表现引发全球媒体热议 &nbsp;&nbsp; | &nbsp;&nbsp; 墨尔本大学宣布加强与亚太地区新闻学府的学术交流计划 &nbsp;&nbsp; | &nbsp;&nbsp; 跨越半球的观察：美利坚政策走向深度分析
+    </div>
+  </div>
+  <div style="font-weight:700;">KRISTINA'S GLOBAL MONITOR</div>
+</div>
+
+<header>
+  <div class="header-logo">Americas Focus</div>
+  <div class="header-sub">DIPLOMACY · JOURNALISM · MEDIA TECHNOLOGY</div>
+</header>
+
+<div class="container">
+  
+  <aside class="trending-box">
+    <h4 class="trending-title">Trending Analysis</h4>
+    <div class="trending-item">
+      <span class="trending-num">01</span>
+      <a href="#">后全球化时代的供应链：美洲地区的战略重组</a>
+    </div>
+    <div class="trending-item">
+      <span class="trending-num">02</span>
+      <a href="#">数字外交：社交媒体如何改变拉美各国的政治沟通</a>
+    </div>
+    <div class="trending-item">
+      <span class="trending-num">03</span>
+      <a href="#">墨尔本视角：澳洲媒体如何报道美洲大选动态</a>
+    </div>
+  </aside>
+
+  <main>
+    <div style="padding: 20px; text-align: center; color: #888; font-style: italic;">
+      系统正在初始化 GitHub Actions 自动化数据流... <br>
+      如果您是第一次部署，请在 Actions 选项卡手动触发运行一次。
+    </div>
+    </main>
+
+  <aside>
+    <div class="sidebar-section">
+      <h4>AUSTRALIA / ABC</h4>
+      <p style="font-size:0.9rem; font-weight:700;"><a href="https://www.abc.net.au/news/" style="text-decoration:none; color:inherit;">墨尔本大学周边社区房租变动分析</a></p>
     </div>
 
-    <style>
-      .news-item {
-        border-bottom: 1px solid #eee;
-        padding: 15px 0;
-        transition: 0.3s;
-      }
-      .news-item:hover { opacity: 0.7; }
-      .news-category {
-        display: block;
-        font-family: 'Libre Franklin', sans-serif;
-        font-size: 0.65rem;
-        font-weight: 700;
-        color: var(--accent);
-        margin-bottom: 5px;
-      }
-      .news-item a {
-        font-family: 'Noto Serif SC', serif;
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: var(--nyt-black);
-        text-decoration: none;
-        line-height: 1.4;
-        display: block;
-      }
-      .news-time {
-        display: block;
-        font-family: 'Libre Franklin', sans-serif;
-        font-size: 0.6rem;
-        color: #999;
-        margin-top: 5px;
-      }
-      .view-all-btn {
-        display: block;
-        margin-top: 20px;
-        font-family: 'Libre Franklin', sans-serif;
-        font-size: 0.7rem;
-        font-weight: 700;
-        text-align: center;
-        text-decoration: none;
-        color: #121212;
-        border: 1px solid #121212;
-        padding: 8px;
-        transition: 0.3s;
-      }
-      .view-all-btn:hover { background: #121212; color: #fff; }
-    </style>
+    <div class="sidebar-section">
+      <h4>CHINA / XINHUA</h4>
+      <p style="font-size:0.9rem; font-weight:700;"><a href="http://english.news.cn/" style="text-decoration:none; color:inherit;">中国科技创新在国际合作中的新角色</a></p>
+    </div>
+
+    <div style="background:#fff9e6; padding:20px; border-left:4px solid #f1c40f; margin-top:20px;">
+      <h5 style="margin:0 0 10px 0; font-family:'Libre Franklin'; font-size:0.8rem;">ABOUT THE MONITOR</h5>
+      <p style="font-size:0.8rem; line-height:1.5; color:#555;">
+        本看板由<strong>北京外国语大学外交学</strong>校友、现<strong>墨尔本大学新闻系</strong>学生 Kristina 开发。利用 GitHub Actions 自动化技术，实现跨国资讯的实时聚合与深度监测。
+      </p>
+    </div>
+  </aside>
+
+</div>
+
+<footer>
+  © 2026 KRISTINA BAI | THE UNIVERSITY OF MELBOURNE (UNIMELB) | BFSU ALUMNA
+</footer>
+
+</body>
+</html>
