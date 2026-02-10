@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Kristina - 麦站笔记</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #fdfcfb; --text: #1a1a1a; --accent: #c0392b; --card: #ffffff; --shadow: 0 15px 35px rgba(0,0,0,0.05); }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+
+    header {
+      background: rgba(255, 255, 255, 0.95); position: sticky; top: 0; z-index: 1000;
+      padding: 0 5%; height: 80px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .logo { font-family: 'Noto Serif SC', serif; font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+    .nav-link { margin-left: 2rem; text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.9rem; }
+    .nav-link:hover { color: var(--accent); }
+
+    .profile-hero { max-width: 1000px; margin: 4rem auto; padding: 0 5%; display: flex; align-items: center; gap: 4rem; }
+    .profile-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: var(--shadow); border: 5px solid white; }
+    .profile-info h1 { font-family: 'Noto Serif SC', serif; font-size: 2.8rem; }
+    .profile-info .title { color: var(--accent); font-weight: 600; margin-bottom: 1rem; }
+
+    .bio-section { max-width: 1000px; margin: 0 auto 4rem; padding: 0 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .timeline { max-width: 1000px; margin: 4rem auto; padding: 0 5%; }
+    .timeline-item { border-left: 2px solid #eee; padding-left: 2rem; position: relative; margin-bottom: 2.5rem; }
+    .timeline-item::before { content: ''; position: absolute; left: -7px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+
+    .portfolio-section { background: #1a1a1a; padding: 5rem 5%; color: white; }
+    .section-inner { max-width: 1000px; margin: 0 auto; }
+    .media-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; margin-top: 2rem; }
+    .video-item { background: #333; aspect-ratio: 16/9; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+
+    @media (max-width: 768px) { .profile-hero, .bio-section, .media-grid { grid-template-columns: 1fr; flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">M-Z NOTES.</a>
+  <nav>
+    <a href="index.html" class="nav-link">首页</a>
+    <a href="about.html" class="nav-link" style="color:var(--accent)">关于我</a>
+  </nav>
+</header>
+
+<main>
+  <section class="profile-hero">
+    <img src="https://picsum.photos/id/64/400/400" alt="Kristina" class="profile-img">
+    <div class="profile-info">
+      <h1>Kristina</h1>
+      <p class="title">Journalism | Voice Reels | Storyteller</p>
+      <p style="color:#666;">寻找技术浪潮中声音与文字的人文温度。</p>
+    </div>
+  </section>
+
+  <section class="bio-section">
+    <div>
+      <h3 style="margin-bottom:1rem;">About Me</h3>
+      <p style="font-size:0.95rem; text-align:justify;">目前在墨尔本大学攻读新闻学硕士。运营着一个专注于配音艺术的自媒体账号。</p>
+    </div>
+    <div>
+      <h3 style="margin-bottom:1rem;">Experience</h3>
+      <p style="font-size:0.95rem; text-align:justify;">I am a journalism student at UoM with a background in Diplomacy from BFSU.</p>
+    </div>
+  </section>
+
+  <section class="timeline">
+    <h2 style="font-family:'Noto Serif SC', serif; margin-bottom:2rem;">Education & Internships</h2>
+    <div class="timeline-item">
+      <p style="color:#999; font-weight:700; font-size:0.8rem;">2025 - PRESENT</p>
+      <h4>墨尔本大学 (The University of Melbourne)</h4>
+      <p style="font-size:0.9rem; color:#666;">Master of Journalism</p>
+    </div>
+    <div class="timeline-item">
+      <p style="color:#999; font-weight:700; font-size:0.8rem;">NOV 2025</p>
+      <h4>新华网 (Xinhua News Agency)</h4>
+      <p style="font-size:0.9rem; color:#666;">新闻实习生 - 负责专题短视频制作。</p>
+    </div>
+    <div class="timeline-item">
+      <p style="color:#999; font-weight:700; font-size:0.8rem;">PREVIOUSLY</p>
+      <h4>北京外国语大学 (BFSU)</h4>
+      <p style="font-size:0.9rem; color:#666;">外交学专业学士。</p>
+    </div>
+  </section>
+
+  <section class="portfolio-section">
+    <div class="section-inner">
+      <h2 style="text-align:center; font-family:'Noto Serif SC', serif;">Selected Works / 选集</h2>
+      <div class="media-grid">
+        <div>
+          <h4 style="margin-bottom:1.5rem; color:var(--accent);">Video Journalism</h4>
+          <div class="video-item"><span>[ 嵌入你的新闻专题视频 ]</span></div>
+          <p style="font-size:0.85rem;"><strong>专题报道：</strong> AI时代的配音行业变革</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom:1.5rem; color:var(--accent);">Voice Reels</h4>
+          <div style="background:rgba(255,255,255,0.05); padding:1.5rem; border-radius:12px;">
+            <p style="font-size:0.9rem; border-bottom:1px solid #333; padding-bottom:10px;">商业配音：咖啡宣传片</p>
+            <p style="font-size:0.9rem; padding-top:10px;">纪录片：墨尔本城市图鉴</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="padding:4rem; text-align:center; color:#999; font-size:0.8rem;">
+  <p>© 2026 Kristina | M-Z NOTES</p>
+</footer>
+</body>
+</html>
