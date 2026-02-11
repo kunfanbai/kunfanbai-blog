@@ -29,22 +29,23 @@ def get_news_html():
 
 def update_file():
     file_path = 'americas-focus.html'
-    # 必须填入具体的标记内容
+    # 这里我已经为你填好了“暗号”，脚本会根据这两个标记找到插入位置
     start_mark = ""
     end_mark = ""
+
+    if not os.path.exists(file_path):
+        print(f"错误：找不到文件 {file_path}")
+        exit(1)
 
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # 核心检查：确保标记完全匹配
-    if start_mark not in content:
-        print(f"错误：在 HTML 中没找到开始标记 {start_mark}")
-        exit(1)
-    if end_mark not in content:
-        print(f"错误：在 HTML 中没找到结束标记 {end_mark}")
+    # 核心检查：确保标记在 HTML 中确实存在
+    if start_mark not in content or end_mark not in content:
+        print(f"错误：在 HTML 中没找到匹配的标记。请检查 HTML 文件中是否包含 {start_mark} 和 {end_mark}")
         exit(1)
 
-    # 精准替换
+    # 精准分割并替换内容
     pre_content = content.split(start_mark)[0]
     post_content = content.split(end_mark)[1]
     
@@ -52,7 +53,7 @@ def update_file():
     
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(new_html)
-    print("成功：美洲聚焦页面已更新！")
+    print("成功：美洲聚焦页面已自动更新新闻内容！")
 
 if __name__ == "__main__":
     update_file()
