@@ -29,6 +29,7 @@ def get_news_html():
 
 def update_file():
     file_path = 'americas-focus.html'
+    # 必须填入具体的标记内容
     start_mark = ""
     end_mark = ""
 
